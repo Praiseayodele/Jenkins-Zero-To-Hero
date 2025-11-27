@@ -2,13 +2,13 @@ pipeline {
     agent {
         docker {
             image 'abhishekf5/maven-abhishek-docker-agent:v1'
-            args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // Docker socket access
+            args '--user root -v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
 
     environment {
         SONAR_URL = "http://34.234.70.228:9000"
-        DOCKER_IMAGE = "praiseayodele/ultimate-cicd:${BUILD_NUMBER}" // push under your Docker Hub
+        DOCKER_IMAGE = "praiseayodele/ultimate-cicd:${BUILD_NUMBER}"
         REGISTRY_CREDENTIALS = credentials('docker-cred')
         GIT_REPO_NAME = "Jenkins-Zero-To-Hero"
         GIT_USER_NAME = "Praiseayodele"
